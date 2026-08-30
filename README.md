@@ -1,24 +1,36 @@
 # 🌍 Global Income Inequality Explorer
 
-An interactive data analytics dashboard that explores global income inequality and its relationship with GDP per capita and population across countries and years.
+An interactive data analytics dashboard that explores **global income inequality** and its relationship with **GDP per capita and population** across countries and years.
+
+🔗 **Live Dashboard:** Add your Streamlit app URL here https://global-income-inequality-explorer-su62ysz3k5wxe37ukxq77m.streamlit.app/
+
+---
 
 ## 📊 Project Overview
 
-This project analyzes real-world World Bank data to understand how income inequality varies across countries and changes over time.
+This project uses real-world **World Bank Open Data** to analyze how income inequality varies across countries and changes over time.
 
-The interactive Streamlit dashboard allows users to:
+The project combines three major indicators:
 
-* Select a country and year
-* View the Gini Index
-* View GDP per capita
-* View population
-* Analyze inequality trends over time
-* Compare countries using an interactive world map
-* Identify countries with the highest reported Gini Index values
+* **Gini Index** — measure of income inequality
+* **GDP per Capita** — indicator of economic development
+* **Population** — demographic indicator
+
+The final result is an interactive **Streamlit dashboard** that allows users to explore inequality patterns at both country and global levels.
+
+---
 
 ## 🎯 Business Objective
 
-The objective is to explore global income inequality and investigate how it varies across countries and over time, while examining its relationship with economic and demographic indicators such as GDP per capita and population.
+The objective is to understand:
+
+* How income inequality varies between countries
+* How inequality changes over time
+* How inequality relates to GDP per capita
+* Which countries report the highest Gini Index values
+* How economic and demographic indicators differ across countries
+
+---
 
 ## 🔄 Project Workflow
 
@@ -37,65 +49,106 @@ Dataset Merging
         ↓
 Exploratory Data Analysis
         ↓
-Visualization
+Data Visualization
         ↓
 Streamlit Dashboard
         ↓
 GitHub
         ↓
-Deployment
+Streamlit Community Cloud
 ```
+
+---
 
 ## 🗂️ Data Sources
 
-The project uses World Bank Open Data for:
+The project uses **World Bank Open Data** for:
 
 * Gini Index
 * GDP per capita
 * Population
 
-The datasets were cleaned and investigated before being merged into a single analytical dataset.
+The individual datasets were cleaned, validated, and merged using **country codes and year**.
+
+World Bank aggregate entities such as income groups were identified and removed before country-level analysis.
+
+---
 
 ## 🧹 Data Preparation
 
-The analysis included:
+The data preparation process included:
 
 * Handling missing values
-* Checking duplicate country-year combinations
-* Identifying and removing World Bank aggregate entities
 * Standardizing country and year information
-* Merging multiple datasets using country codes and year
+* Investigating duplicate country-year combinations
+* Identifying World Bank aggregate entities
+* Removing aggregate entities from country-level analysis
+* Merging datasets using country codes and year
 * Validating the final analytical dataset
+
+This ensured that the final dataset contained meaningful country-level observations for analysis.
+
+---
 
 ## 📈 Dashboard Features
 
-### 1. Country & Year Filters
+### 1. 🌍 Country & Year Filters
 
-Users can interactively select a country and year to explore the corresponding indicators.
+Users can select a country and an available year from the sidebar.
 
-### 2. KPI Cards
+The dashboard dynamically updates based on the selected values.
+
+### 2. 📌 KPI Cards
 
 The dashboard displays:
 
-* **Gini Index**
-* **GDP per Capita**
-* **Population**
+* Gini Index
+* GDP per Capita
+* Population
 
-### 3. Inequality Trend
+for the selected country and year.
 
-An interactive line chart shows how the selected country's Gini Index changes over time.
+### 3. 📈 Inequality Trend
 
-### 4. Interactive World Map
+An interactive line chart shows how the selected country's **Gini Index changes over time**.
+
+The dashboard also provides an automated insight comparing the earliest and latest available Gini observations.
+
+### 4. 🗺️ Interactive World Map
 
 A choropleth map compares Gini Index values across countries for the selected year.
 
-### 5. Highest Inequality Ranking
+Users can hover over countries to inspect their reported Gini values.
 
-A Top 10 bar chart highlights countries with the highest reported Gini Index values for the selected year.
+### 5. 📊 Highest Inequality Ranking
 
-### 6. Automated Trend Insight
+A Top 10 bar chart identifies countries with the highest reported Gini Index values for the selected year.
 
-The dashboard calculates the change between the earliest and latest available Gini observations for the selected country.
+### 6. ℹ️ Dashboard Guidance
+
+An expandable section explains how users can interact with and interpret the dashboard.
+
+---
+
+## 🖼️ Dashboard Screenshots
+
+### Dashboard Overview
+
+![Dashboard Overview](screenshots/dashboard-overview.png)
+
+### Country Analysis
+
+![Country Analysis](screenshots/country-analysis.png)
+
+### World Map
+
+![World Map](screenshots/world-map.png)
+
+### Top 10 Inequality Ranking
+
+![Top 10 Inequality Ranking](screenshots/top-10-inequality.png)
+
+---
 
 ## 🛠️ Technologies Used
 
@@ -105,7 +158,7 @@ The dashboard calculates the change between the earliest and latest available Gi
 * Pandas
 * NumPy
 
-### Visualization
+### Data Visualization
 
 * Plotly
 * Matplotlib
@@ -115,12 +168,14 @@ The dashboard calculates the change between the earliest and latest available Gi
 
 * Streamlit
 
-### Development
+### Development Tools
 
 * Jupyter Notebook
 * VS Code
 * Git
 * GitHub
+
+---
 
 ## 📁 Project Structure
 
@@ -131,6 +186,12 @@ Global-Income-Inequality/
 ├── requirements.txt
 ├── README.md
 ├── .gitignore
+│
+├── screenshots/
+│   ├── dashboard-overview.png
+│   ├── country-analysis.png
+│   ├── world-map.png
+│   └── top-10-inequality.png
 │
 ├── data/
 │   └── master_inequality_dataset.csv
@@ -145,12 +206,14 @@ Global-Income-Inequality/
     └── config.toml
 ```
 
+---
+
 ## 🚀 Run the Project Locally
 
 ### 1. Clone the repository
 
 ```bash
-git clone YOUR_GITHUB_REPOSITORY_URL
+git clone https://global-income-inequality-explorer-su62ysz3k5wxe37ukxq77m.streamlit.app/
 ```
 
 ### 2. Navigate into the project
@@ -167,7 +230,7 @@ python -m venv venv
 
 ### 4. Activate the virtual environment
 
-Windows PowerShell:
+#### Windows PowerShell
 
 ```powershell
 venv\Scripts\Activate.ps1
@@ -185,36 +248,61 @@ pip install -r requirements.txt
 streamlit run app.py
 ```
 
-## 🌐 Live Dashboard
+The dashboard will open in your browser.
 
-**Streamlit App:** YOUR_STREAMLIT_APP_URL
+---
 
-## 💡 Key Skills Demonstrated
+## 📊 Key Analytical Questions
 
-* Data collection from public APIs
-* Data cleaning
-* Data validation
+This project was designed to answer questions such as:
+
+* Which countries have the highest reported inequality?
+* How does inequality change over time?
+* How does GDP per capita differ between countries?
+* How do population sizes vary across countries?
+* What inequality patterns can be observed globally?
+
+---
+
+## 💡 Key Data Analyst Skills Demonstrated
+
+This project demonstrates practical experience with:
+
+* Data collection from public sources
+* Data cleaning and preprocessing
 * Missing-value handling
 * Duplicate investigation
-* Aggregate/entity identification
-* Dataset merging
+* Data validation
+* Dataset integration
 * Exploratory Data Analysis
+* Data visualization
 * KPI development
-* Time-series analysis
-* Geographic analysis
-* Interactive visualization
-* Dashboard development
+* Interactive dashboard development
 * Git/GitHub version control
-* Streamlit deployment
+* Cloud deployment
 
-## 📌 Project Outcome
-
-This project transforms multiple World Bank datasets into an interactive analytical dashboard that makes it easier to explore global inequality patterns and compare countries across different years.
+---
 
 ## 👩‍💻 Author
 
 **Revathi Tamarana**
 
-B.Tech Information Technology Student
+B.Tech — Information Technology
 
-Interested in Data Analytics and Business Analytics.
+Interested in **Data Analytics, Business Analytics, and AI-powered analytics**.
+
+---
+
+## ⭐ Project Highlights
+
+**End-to-end Data Analytics Project**
+
+```text
+Raw Data → Cleaning → Analysis → Visualization
+                    ↓
+             Interactive Dashboard
+                    ↓
+               Deployment
+```
+
+If you found this project useful, consider giving the repository a ⭐.
